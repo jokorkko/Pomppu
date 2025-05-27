@@ -446,6 +446,9 @@ MonoBehaviour:
   mouse_on_screen: {x: 0, y: 0, z: 0}
   mouse_world_position: {x: 0, y: 0, z: 0}
   original_ball_position: {x: 0, y: 0, z: 0}
+  ui: {fileID: 0}
+  score: 0
+  high_score: 0
 --- !u!54 &1007708145
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -473,6 +476,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!114 &1007708150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007708137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dc5c105e79cad4eb2a22a4b592124a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1656638655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -483,7 +498,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1975457108487340, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
       propertyPath: m_Name
-      value: Soccer Ball
+      value: The Ball
       objectReference: {fileID: 0}
     - target: {fileID: 4935240531098310, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
       propertyPath: m_LocalPosition.x
@@ -539,6 +554,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1975457108487340, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1007708145}
+    - targetCorrespondingSourceObject: {fileID: 1975457108487340, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1007708150}
   m_SourcePrefab: {fileID: 100100000, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
 --- !u!1 &2037638341
 GameObject:
@@ -553,7 +571,7 @@ GameObject:
   - component: {fileID: 2037638343}
   - component: {fileID: 2037638342}
   m_Layer: 0
-  m_Name: Nurmi
+  m_Name: Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,6 +677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2073645643}
   - component: {fileID: 2073645642}
+  - component: {fileID: 2073645644}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -700,6 +719,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2073645644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073645641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dc5c105e79cad4eb2a22a4b592124a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

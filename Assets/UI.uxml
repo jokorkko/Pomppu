@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI.uss?fileID=7433441132597879392&amp;guid=02cbd664bde278a4eb3119b6d2654e6a&amp;type=3#UI" />
     <ui:VisualElement name="UI" style="flex-grow: 1;">
-        <ui:Label text="Score: 0" name="Score" class="panel" style="align-self: flex-end; height: 10%; width: 20%; font-size: 50%; text-overflow: clip; -unity-text-align: middle-center; -unity-background-scale-mode: stretch-to-fill;" />
+        <ui:Label name="Score" text="Score: 0" class="panel" style="align-self: flex-end; height: 10%; width: 20%; font-size: 50%; text-overflow: clip; -unity-text-align: middle-center; -unity-background-scale-mode: stretch-to-fill;" />
         <ui:Label text="Best: 0" name="Best" class="panel" style="align-self: flex-end; width: 20%; height: 10%; font-size: 50%; -unity-text-align: middle-center; justify-content: flex-start; align-content: flex-start;" />
     </ui:VisualElement>
 </ui:UXML>
