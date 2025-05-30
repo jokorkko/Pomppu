@@ -11,6 +11,9 @@ public class Ball : MonoBehaviour
     public const float SPIN_FORCE = 0.5f;
     private Rigidbody rb;
 
+    private GameObject left_wall;
+    private GameObject right_wall;
+
     public Vector3 mouse_on_screen;
     public Vector3 mouse_world_position;
     public Vector3 original_ball_position;
@@ -21,12 +24,28 @@ public class Ball : MonoBehaviour
     public int high_score = 0;
 
 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Camera camera = Camera.main;
         rb = GetComponent<Rigidbody>();
         original_ball_position = rb.transform.position;
         ui = GetComponent<UIBuilder>();
+
+        left_wall = GameObject.Find("LeftWall");
+        right_wall = GameObject.Find("RightWall");
+
+        //Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+
+        float distance = Vector3.Distance(Camera.main.transform.position, transform.position);
+
+        Vector3 left_position = camera.ViewportToWorldPoint(new Vector3(0, 0, distance));
+        Vector3 right_position = camera.ViewportToWorldPoint(new Vector3(1, 0, distance));
+
+        left_wall.transform.position = left_position;
+        right_wall.transform.position = right_position;//Toteuta kimpoaminen
     }
 
     // Update is called once per frame
@@ -40,6 +59,15 @@ public class Ball : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
             transform.position = original_ball_position;
         }
+
+
+
+        /*if (pos.x < -0.3 || 1.3 < pos.x)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            transform.position = original_ball_position;
+        }*/
 
     }
 
