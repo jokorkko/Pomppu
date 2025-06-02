@@ -1,2 +1,3 @@
 .panel {
+    -unity-background-scale-mode: scale-to-fit;
 }
