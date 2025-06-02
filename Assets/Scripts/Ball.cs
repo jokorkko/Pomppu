@@ -51,14 +51,6 @@ public class Ball : MonoBehaviour
     void Update()
     {
 
-        //reset ball position and movement when "R" is pressed on keyboard
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            transform.position = original_ball_position;
-        }
-
     }
 
 
@@ -91,10 +83,6 @@ public class Ball : MonoBehaviour
 
             rb.AddForce(force, ForceMode.Impulse);
 
-            // Add spin for the ball
-            Vector3 torqueDir = Vector3.Cross(Vector3.up, direction);
-            rb.AddTorque(torqueDir * SPIN_FORCE, ForceMode.Impulse);
-
             game_manager.UpdateScore();
 
         }
@@ -108,25 +96,16 @@ public class Ball : MonoBehaviour
         {
             game_manager.ResetScore();
         }
-
-        //Ball bounce on the walls, BUGBUGBUG
+        
+        // Reflect the ball movement from the walls
         if (collision.collider.name == "LeftWall" || collision.collider.name == "RightWall")
         {
-            Debug.Log(collision.collider.name);
 
-            // Get the normal of the collision
-            Vector3 normal = collision.contacts[0].normal;
+            ContactPoint contact = collision.GetContact(0);
 
-            // Calculate the reflected velocity using Vector3.Reflect
-            Vector3 reflectedVelocity = Vector3.Reflect(rb.linearVelocity, normal);
-            Vector3 reflectedAngularVelocity = Vector3.Reflect(rb.angularVelocity, normal);
+            Vector3 reflectedVelocity = Vector3.Reflect(rb.linearVelocity, contact.normal);
+            rb.linearVelocity = reflectedVelocity;
 
-            // Apply the reflected velocity to the Rigidbody
-            //rb.linearVelocity = reflectedVelocity * rb.linearVelocity.magnitude;
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.AddForce(reflectedVelocity, ForceMode.VelocityChange);
-            rb.AddTorque(reflectedAngularVelocity, ForceMode.VelocityChange);
         }
     }
 
